@@ -8,8 +8,8 @@ import os
 def create_folder(dirpath_name: str, subdir_name: str) -> None:
     """create directories and sub-directories for data"""
 
-    dirpath = Path(os.path.join("..", dirpath_name))
-    subdir = Path(os.path.join("..", dirpath_name,  subdir_name))
+    dirpath = Path(os.path.join("..", "..", dirpath_name))
+    subdir = Path(os.path.join("..", "..", dirpath_name,  subdir_name))
 
     if dirpath.is_dir():
         print(f"The directory '{dirpath_name}' already exists")
@@ -28,11 +28,12 @@ def create_folder(dirpath_name: str, subdir_name: str) -> None:
               sub-directory '{subdir_name}' have been created")
 
 
-create_folder(dirpath_name='data', subdir_name="raw")
-create_folder(dirpath_name='data', subdir_name="preprocess")
+create_folder(dirpath_name='dataaa', subdir_name="raw")
+create_folder(dirpath_name='dataaa', subdir_name="preprocess")
 
 
 def load_json_files(file_names: list) -> None:
+    """loads json files"""
 
     for filename in file_names:
 
@@ -42,7 +43,7 @@ def load_json_files(file_names: list) -> None:
               + filename
         response = requests.get(url)
 
-        data_path = os.path.join("..", "data", "raw", var_name + ".json")
+        data_path = os.path.join("..", "..", "data", "raw", var_name + ".json")
 
         with open(data_path, "w") as f:
             f.write(response.text)

@@ -1,0 +1,86 @@
+.title{
+    color: rgb(46, 172, 207);
+    font-size: 50px;
+    font-weight: 'bold';
+    font-family: 'Brush Script MT';
+    text-align: center;
+    padding-bottom: 2%
+}
+
+.header-text{
+    text-align: center;
+    background-color: #4CAF50;
+    color: #6A1B9A;
+    font-size: 22px;
+    font-family: auto;
+    font-weight: bold;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px
+
+}
+
+.data-link{
+    text-align: center;
+    background-color: #4CAF50;
+    font-size: 10px;
+    font-family: auto;
+    font-weight: bold;
+    margin-top: 0;
+    padding-bottom: 1%
+}
+
+.hr-style{
+    border: 4px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white
+}
+
+.p-graphic1{
+    color: black;
+    background-color: #81C784;
+    padding-right: auto;
+    font-family: auto;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.dropdown-graphic1{
+    color: black;
+    font-family: auto;
+    font-weight: bold;
+}
+
+.output-counter-div{
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1%;
+    padding-bottom: 3%;
+}
+
+.hr-style-thinner{
+    border: 2px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white
+}
+
+.style-col{
+    box-shadow: 0px 0px 10px rgba(0,0,0, 1);
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px
+}
+
+.background-graphic{
+    background-color: #81C784;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-bottom: 2%
+}
