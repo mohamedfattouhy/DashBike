@@ -27,7 +27,7 @@ def preprocess_json_files(path_to_json_file: str) -> pd.DataFrame:
     df["id"] = df["id"].str.split("_").str[2]
 
     df["Date"] = pd.to_datetime(df["Date"])
-    df["Date"] = df["Date"].dt.strftime("%d-%m-%Y")
+    df["Date"] = df["Date"].dt.strftime("%Y-%m-%d")  # iso format
 
     df[["lat", "lon"]] = pd.DataFrame(df["coord"].tolist(),
                                       columns=["lat", "lon"])
@@ -63,6 +63,5 @@ def dict_of_df(counters: list = counters) -> dict:
     return df_dict
 
 
-# counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
-# dict_test = dict_of_df(counters=counters)
-# print(dict_test.keys())
+counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
+dict_test = dict_of_df(counters=counters)

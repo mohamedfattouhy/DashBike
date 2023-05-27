@@ -1,8 +1,13 @@
 # MANAGE ENVIRONNEMENT
+from dash import html
+from .graphics import graphic1, graphic2
 import dash_bootstrap_components as dbc
-from dash import html, dcc
 
 counters = ['X2H20063162', 'X2H19070220', 'X2H20042632', 'X2H20042634']
+
+# IMPORT GRAPHICS
+col_graphic1, div_graphic1 = graphic1(counters=counters)
+col_graphic2, div_graphic2 = graphic2(counters=counters)
 
 
 def layout() -> html.Div:
@@ -10,12 +15,14 @@ def layout() -> html.Div:
 
     return html.Div([
 
+        # Header -----------------------
         dbc.Col([html.Div("Dash Bike", className='title'
                           )
                  ]),
 
         dbc.Col([
 
+            # Title -----------------------
             html.Div("Bicycle traffic in Montpellier",
                      className="header-text"),
 
@@ -34,48 +41,17 @@ def layout() -> html.Div:
                      style={'padding-bottom': '4%'}
                      ),
 
-            dbc.Col([
+            # First graphic -----------------------
+            col_graphic1, div_graphic1,
 
-                dbc.Col([
+            html.Div(html.Hr(className="hr-style-thinner"),
+                     style={'padding-bottom': '3%'}),
 
-                    # First graphic -----------------------
-                    html.P("Select an eco-counter :",
-                           className="p-graphic1")
+            # Second graphic -----------------------
+            col_graphic2, div_graphic2
 
-                         ], xs=12, sm=12, md=12, lg=12, xl=12, xxl=12,
-                        style={'padding-left': '10px',
-                               'padding-right': '10px'}
-                        ),
+            ], className="background-graphic")
 
-                dbc.Col([
+        ], width=12, className="style-col"),
 
-                    html.Div(
-                        dcc.Dropdown(id='input-counter', clearable=False,
-                                        value="X2H20063162",
-                                        options=counters,
-                                        className="dropdown-graphic1"),
-                        style={'backgroundColor': "#81C784",
-                               'margin-top': 0
-                               }
-                            ),
-                        ],
-                        xs=10, sm=10, md=4, lg=3, xl=2, xxl=2,
-                        style={'padding-left': '10px',
-                               'padding-right': '10px'}
-                        ),
-
-
-                        ], style={'backgroundColor': "#81C784",
-                                  'padding-bottom': '1%'}
-                    ),
-
-            html.Div(id="output-counter", children=[],
-                     className="output-counter-div"),
-
-            # html.Div(html.Hr(className="hr-style-thinner"),
-            #          style={'padding-bottom': '3%'}),
-
-                ], className="background-graphic")
-        ], width=12, className="style-col")
-
-        ], style={'margin-top': '40px', 'padding-bottom': '1%'})
+    ], style={'margin-top': '40px', 'padding-bottom': '1%'})
