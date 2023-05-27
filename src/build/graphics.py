@@ -10,9 +10,15 @@ def graphic1(counters: list) -> tuple:
 
             dbc.Col([
 
-                # First graphic -----------------------
-                html.P("Select an eco-counter :",
-                       className="p-graphic")
+              # First graphic -----------------------
+              html.Span("Select an eco-counter ",
+                        className="p-graphic"),
+              html.Span(className="bi bi-list",
+                        style={'font-size': '18px',
+                               'color': 'black'})
+
+              #   html.P("Select an eco-counter :",
+              #          className="p-graphic")
 
                         ], xs=12, sm=12, md=12, lg=12, xl=12, xxl=12,
                     style={'padding-left': '10px',
@@ -47,8 +53,13 @@ def graphic2(counters: list) -> tuple:
             dbc.Col([
 
                 # Second graphic -----------------------
-                html.P("Sélectionner un éco-compteur :",
-                       className="p-graphic")
+                html.Span("Select an eco-counter ",
+                          className="p-graphic"),
+                html.Span(className="bi bi-list",
+                          style={'font-size': '18px',
+                                 'color': 'black',
+                                 'margin-bottom': 0})
+
                 ], xs=12, sm=12, md=12, lg=12, xl=12, xxl=12,
                     style={'padding-left': '10px',
                            'padding-right': '10px'}),

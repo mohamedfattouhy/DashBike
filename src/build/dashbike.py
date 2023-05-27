@@ -16,9 +16,21 @@ def layout() -> html.Div:
     return html.Div([
 
         # Header -----------------------
-        dbc.Col([html.Div("Dash Bike", className='title'
-                          )
-                 ]),
+        # dbc.Col([html.Div("Dash Bike", className='title'
+        #                   )
+        #          ]),
+
+        dbc.Col([
+
+            html.Div([
+
+                html.Span("Dash Bike", className="title me-2"),
+                html.Span(className="bi bi-bicycle",
+                          style={'font-size': '40px',
+                                 'color': 'rgb(46, 172, 207)'})
+            ])
+
+            ], width=12, className="d-flex justify-content-center"),
 
         dbc.Col([
 
@@ -54,4 +66,4 @@ def layout() -> html.Div:
 
         ], width=12, className="style-col"),
 
-    ], style={'margin-top': '40px', 'padding-bottom': '1%'})
+    ], style={'margin-top': '20px', 'padding-bottom': '1%'})
