@@ -2,6 +2,7 @@
 from callback.callback_functions import (
        bike_traffic,
        traffic_week,
+       pie_graph,
        map_traffic_bike)
 import src.build.dashbike as sbd
 import dash_bootstrap_components as dbc
@@ -13,7 +14,6 @@ import webbrowser as wb
 app = Dash(__name__,  title='Dashbike',
            external_stylesheets=[dbc.themes.SUPERHERO,
                                  dbc.icons.BOOTSTRAP,
-                                 dbc.icons.FONT_AWESOME,
                                  'assets/style.css'],
            meta_tags=[{'name': 'viewport',
                        'content': 'width=device-width,\
@@ -31,7 +31,7 @@ app.layout = dbc.Container(children=layout(), fluid=True)
               [Input(component_id="input-counter",
                      component_property="value")]
               )
-def update_trafic_velos(counter):
+def update_traffic_velos(counter):
     return bike_traffic(counter)
 
 
@@ -42,6 +42,15 @@ def update_trafic_velos(counter):
               )
 def update_traffic_week(counter):
     return traffic_week(counter)
+
+
+@app.callback(Output(component_id="output-pie",
+                     component_property="figure"),
+              [Input(component_id="input-pie",
+                     component_property="children")]
+              )
+def update_pie_graph(children=None):
+    return pie_graph(counters=sbd.counters)
 
 
 @app.callback(Output(component_id="output-map",

@@ -1,5 +1,6 @@
 # MANAGE ENVIRONNEMENT
 from preprocess.preprocess_data import dict_of_df
+import plotly.graph_objs as go
 import plotly.express as px
 from dash import dcc
 import pandas as pd
@@ -87,6 +88,84 @@ def traffic_week(counter: str) -> dcc.Graph:
     fig.update_layout(plot_bgcolor="#F1948A", paper_bgcolor="#F1948A")
 
     return dcc.Graph(figure=fig)
+
+
+def pie_graph(counters: list) -> dcc.Graph:
+    """pie chart to visualize the number of bicycles on the road"""
+
+    dff = pd.DataFrame()
+
+    # Loop through the counters
+    for counter in iter(counters):
+
+        df_dict = dict_of_df()
+        df = df_dict[counter]
+
+        # Retrieve the last line of the DataFrame
+        last_row = df.iloc[-1]
+
+        # Add last line to the df_trafic
+        dff = pd.concat([dff, pd.DataFrame([last_row])],
+                        ignore_index=True)
+
+    # Text column
+    dff['text_hover'] = 'Date: ' + dff['Date'] + \
+        '<br>Total number of passages: ' + \
+        (round(dff["intensity"], 0)).astype(int).astype(str)
+
+    title = 'Distribution of bike passages' + \
+            '<br>' +\
+            '<sub>' + '(Date: ' + dff['Date'].iloc[0] + ')'\
+            + '</sub>'
+
+    colors = ['orange', '#dd1e35', 'green', '#e55467']
+
+    graph_pie_bike = {
+
+        'data': [go.Pie(
+                        labels=['X2H20063162', 'X2H19070220',
+                                'X2H20042632', 'X2H20042634'],
+                        values=[intensity for intensity in dff["intensity"]],
+                        marker=dict(colors=colors,
+                                    line=dict(color='#000000',
+                                              width=0.8)),
+                        textinfo='percent',
+                        textposition="inside",
+                        hovertemplate=dff["text_hover"],
+                        textfont=dict(size=10),
+                        hole=.65,
+                        rotation=45,
+                        name=""
+                        )
+                 ],
+
+        'layout': go.Layout(
+                        plot_bgcolor='#1A237E',
+                        paper_bgcolor='#1A237E',
+                        hovermode='closest',
+                        title={
+                            'text': title,
+                            'y': 0.95,
+                            'x': 0.5,
+                            'xanchor': 'center',
+                            'yanchor': 'top'
+                            },
+                        uniformtext_minsize=12,
+                        uniformtext_mode='hide',
+                        titlefont={'color': '#B71C1C',
+                                   'size': 18},
+                        legend={'orientation': 'h',
+                                'bgcolor': '#1A237E',
+                                'xanchor': 'center', 'x': 0.5, 'y': -0.07
+                                },
+                        font=dict(
+                            family="sans-serif",
+                            size=12,
+                            color='white')
+                        )
+        }
+
+    return graph_pie_bike
 
 
 def map_traffic_bike(counters: list) -> dcc.Graph:

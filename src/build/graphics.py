@@ -1,4 +1,3 @@
-
 # MANAGE ENVIRONNEMENT
 import dash_bootstrap_components as dbc
 from dash import html, dcc
@@ -86,6 +85,13 @@ def graphic2(counters: list) -> tuple:
 
 
 def graphic3():
+    """Third graphic of the dashoard"""
+    return html.Div(id="input-pie"), html.Div([dcc.Graph(id="output-pie")],
+                                              className="output-graphic-div")
+
+
+def graphic4():
+    """Fourth graphic of the dashoard"""
     return html.Div("(Some of) Montpellier's eco-counters",
                     id="input-map",
                     className="style-title-graphic3"
