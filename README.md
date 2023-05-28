@@ -2,12 +2,12 @@
 
 ## Bike Counter Dashboard
 
-<!-- ![bike](static/bike3.jpg) -->
+![bike](static/bike3.jpg)
 </div>
 
-<figure align="center" style="box-shadow: 0px 0px 10px rgba(0,0,0,1);">
+<!-- <figure align="center" style="box-shadow: 0px 0px 10px rgba(0,0,0,1);">
   <img src="static/bike3.jpg" alt="bike">
-</figure>
+</figure> -->
 
 
 <br>
