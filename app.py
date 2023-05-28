@@ -1,5 +1,9 @@
 # MANAGE ENVIRONNEMENT
-from callback.callback_functions import bike_traffic, traffic_week
+from callback.callback_functions import (
+       bike_traffic,
+       traffic_week,
+       map_traffic_bike)
+import src.build.dashbike as sbd
 import dash_bootstrap_components as dbc
 from src.build.dashbike import layout
 from dash import Dash, Input, Output
@@ -38,6 +42,15 @@ def update_trafic_velos(counter):
               )
 def update_traffic_week(counter):
     return traffic_week(counter)
+
+
+@app.callback(Output(component_id="output-map",
+                     component_property="children"),
+              [Input(component_id="input-map",
+                     component_property="children")]
+              )
+def update_map_traffic_bike(children=None):
+    return map_traffic_bike(counters=sbd.counters)
 
 
 # run the app locally

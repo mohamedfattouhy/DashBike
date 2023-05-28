@@ -1,6 +1,6 @@
 # MANAGE ENVIRONNEMENT
 from dash import html
-from .graphics import graphic1, graphic2
+from .graphics import graphic1, graphic2, graphic3
 import dash_bootstrap_components as dbc
 
 counters = ['X2H20063162', 'X2H19070220', 'X2H20042632', 'X2H20042634']
@@ -8,6 +8,7 @@ counters = ['X2H20063162', 'X2H19070220', 'X2H20042632', 'X2H20042634']
 # IMPORT GRAPHICS
 col_graphic1, div_graphic1 = graphic1(counters=counters)
 col_graphic2, div_graphic2 = graphic2(counters=counters)
+col_graphic3, div_graphic3 = graphic3()
 
 
 def layout() -> html.Div:
@@ -60,7 +61,13 @@ def layout() -> html.Div:
                      style={'padding-bottom': '3%'}),
 
             # Second graphic -----------------------
-            col_graphic2, div_graphic2
+            col_graphic2, div_graphic2,
+
+            html.Div(html.Hr(className="hr-style-thinner"),
+                     style={'padding-bottom': '3%'}),
+
+            # # Third graphic ------------------------
+            col_graphic3, div_graphic3
 
             ], className="background-graphic")
 

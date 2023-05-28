@@ -2,9 +2,15 @@
 
 ## Bike Counter Dashboard
 
-![bike](static/bike3.jpg)
+<!-- ![bike](static/bike3.jpg) -->
 </div>
 
+<figure style="text-align: center; box-shadow: 0px 0px 10px rgba(0,0,0,1);">
+  <img src="static/bike3.jpg" alt="bike">
+</figure>
+
+
+<br>
 
 This personal project aims to create an application with a dashboard using open-source data provided by the city of Montpellier on bike counters. This project uses Dash (by plotly), which is a framework for building data apps in Python. To find out more about Dash, see [Dash by plotly](https://dash.plotly.com/).
 

@@ -2,6 +2,7 @@
 from preprocess.preprocess_data import dict_of_df
 import plotly.express as px
 from dash import dcc
+import pandas as pd
 
 
 def bike_traffic(counter: str) -> dcc.Graph:
@@ -84,5 +85,62 @@ def traffic_week(counter: str) -> dcc.Graph:
     fig.update_traces(hovertemplate=df["text_hover"], hoverlabel=dict(
         bgcolor="#F1948A"), marker_color='#B03A2E')
     fig.update_layout(plot_bgcolor="#F1948A", paper_bgcolor="#F1948A")
+
+    return dcc.Graph(figure=fig)
+
+
+def map_traffic_bike(counters: list) -> dcc.Graph:
+    """map to visualize the number of bicycles on the road"""
+
+    df_trafic = pd.DataFrame()
+
+    # Loop through the counters
+    for counter in iter(counters):
+
+        df_dict = dict_of_df()
+        df = df_dict[counter]
+
+        # Retrieve the last line of the DataFrame
+        last_row = df.iloc[-1]
+
+        # Add last line to the df_trafic
+        # df_trafic = df_trafic.append(last_row, ignore_index=True)
+        df_trafic = pd.concat([df_trafic, pd.DataFrame([last_row])],
+                              ignore_index=True)
+
+    df_trafic["size"] = df_trafic["intensity"].apply(
+        lambda x: x if x >= 100 else 100)
+
+    fig = px.scatter_mapbox(
+        df_trafic,
+        lon='lon',
+        lat='lat',
+        size="size",
+        size_max=35,
+        zoom=11,
+        center=dict(lat=df_trafic['lat'].mean(),
+                    lon=df_trafic['lon'].mean()),
+    )
+
+    # Text column
+    df_trafic['text_hover'] = 'Eco-counter identifier: '\
+        + df_trafic["id"] + \
+        '<br>Date: ' + df_trafic['Date'] + \
+        '<br>Total number of passages: ' + \
+        (round(df_trafic["intensity"], 0)).astype(int).astype(str)
+
+    fig.update_layout(mapbox_style="open-street-map",
+                      plot_bgcolor="#81C784", paper_bgcolor="#81C784",
+                      title_font=dict(size=18))
+
+    fig.update_layout(margin={"r": 0, "t": 5, "l": 0,
+                      "b": 0})
+
+    fig.update_layout(template='seaborn',
+                      font=dict(color='black',
+                                size=9, family='Times New Roman'))
+
+    fig.update_traces(hovertemplate=df_trafic["text_hover"], hoverlabel=dict(
+        bgcolor="#EC7063"),  marker=dict(color='#E74C3C'))
 
     return dcc.Graph(figure=fig)

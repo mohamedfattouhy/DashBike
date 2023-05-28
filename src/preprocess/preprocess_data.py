@@ -29,8 +29,8 @@ def preprocess_json_files(path_to_json_file: str) -> pd.DataFrame:
     df["Date"] = pd.to_datetime(df["Date"])
     df["Date"] = df["Date"].dt.strftime("%Y-%m-%d")  # iso format
 
-    df[["lat", "lon"]] = pd.DataFrame(df["coord"].tolist(),
-                                      columns=["lat", "lon"])
+    df[["lon", "lat"]] = pd.DataFrame(df["coord"].tolist(),
+                                      columns=["lon", "lat"])
 
     df = df.drop(["coord"], axis="columns")
 

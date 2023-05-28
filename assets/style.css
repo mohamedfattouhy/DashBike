@@ -84,3 +84,20 @@
     border-bottom-right-radius: 30px;
     padding-bottom: 2%
 }
+
+.style-title-graphic3{
+    font-size: 18px;
+    text-align: center;
+    color: #E74C3C;
+    font-family: auto;
+    font-weight: bold;
+    margin-top: revert;
+    margin-bottom: 0
+}
+
+.style-div-map{
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0
+}

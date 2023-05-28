@@ -41,9 +41,10 @@ def graphic1(counters: list) -> tuple:
                            'padding-right': '10px'}
                     )],
                    style={'backgroundColor': "#81C784",
-                          'padding-bottom': '1%'}), html.Div(id="output-counter",
-                                                             children=[],
-                                                             className="output-graphic-div")
+                          'padding-bottom': '1%'}
+                   ), html.Div(id="output-counter",
+                               children=[],
+                               className="output-graphic-div")
 
 
 def graphic2(counters: list) -> tuple:
@@ -57,8 +58,7 @@ def graphic2(counters: list) -> tuple:
                           className="p-graphic"),
                 html.Span(className="bi bi-list",
                           style={'font-size': '18px',
-                                 'color': 'black',
-                                 'margin-bottom': 0})
+                                 'color': 'black'})
 
                 ], xs=12, sm=12, md=12, lg=12, xl=12, xxl=12,
                     style={'padding-left': '10px',
@@ -79,6 +79,15 @@ def graphic2(counters: list) -> tuple:
                            'padding-right': '10px'}
                     ),
             ], style={'backgroundColor': "#81C784",
-                      'padding-bottom': '1%'}), html.Div(id="output-week",
-                                                         style={'margin-bottom': 0},
-                                                         className="output-graphic-div")
+                      'padding-bottom': '1%'}
+            ), html.Div(id="output-week",
+                        style={'margin-bottom': 0},
+                        className="output-graphic-div")
+
+
+def graphic3():
+    return html.Div("(Some of) Montpellier's eco-counters",
+                    id="input-map",
+                    className="style-title-graphic3"
+                    ), html.Div(className="style-div-map",
+                                id="output-map")
