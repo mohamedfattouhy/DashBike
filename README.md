@@ -16,3 +16,11 @@ This personal project aims to create an application with a dashboard using open-
 
 ### Overview
 This project utilizes publicly available data from the city of Montpellier's bike counters. The city has installed numerous bike counters at strategic locations to monitor and collect data on bike usage across the city. This project leverages this data to provide insights and visualizations through a user-friendly dashboard application. For more information on the data, see: [Bike datasets](https://data.montpellier3m.fr/dataset/comptages-velo-et-pieton-issus-des-compteurs-de-velo).
+
+### Instructions
+To try the app, you can follow these steps:
+
+1. Clone the Git repository on your computer `git clone <project link>`
+2. Run in a terminal `python app.py`
+
+This will enable you to test the dashboard to visualize bicycle traffic in Montpellier from various angles. Enjoy!
