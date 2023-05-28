@@ -5,7 +5,7 @@
 <!-- ![bike](static/bike3.jpg) -->
 </div>
 
-<figure style="text-align: center; box-shadow: 0px 0px 10px rgba(0,0,0,1);">
+<figure align="center" style="box-shadow: 0px 0px 10px rgba(0,0,0,1);">
   <img src="static/bike3.jpg" alt="bike">
 </figure>
 
