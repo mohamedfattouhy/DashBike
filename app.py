@@ -1,14 +1,18 @@
+"""
+This file contains the code to create and run the
+"""
+
 # MANAGE ENVIRONNEMENT
+import webbrowser as wb
+import dash_bootstrap_components as dbc
+from dash import Dash, Input, Output
 from callback.callback_functions import (
        bike_traffic,
        traffic_week,
        pie_graph,
        map_traffic_bike)
 import src.build.dashbike as sbd
-import dash_bootstrap_components as dbc
 from src.build.dashbike import layout
-from dash import Dash, Input, Output
-import webbrowser as wb
 
 
 app = Dash(__name__,  title='Dashbike',
@@ -31,7 +35,8 @@ app.layout = dbc.Container(children=layout(), fluid=True)
               [Input(component_id="input-counter",
                      component_property="value")]
               )
-def update_traffic_velos(counter):
+def update_traffic_bike(counter):
+    """Update bike traffic curve graph"""
     return bike_traffic(counter)
 
 
@@ -41,6 +46,8 @@ def update_traffic_velos(counter):
                      component_property="value")]
               )
 def update_traffic_week(counter):
+    """Update of the bar chart on the
+    rate of bike passages per week"""
     return traffic_week(counter)
 
 
@@ -50,6 +57,7 @@ def update_traffic_week(counter):
                      component_property="children")]
               )
 def update_pie_graph(children=None):
+    """Circular chart of the number of bike"""
     return pie_graph(counters=sbd.counters)
 
 
@@ -59,6 +67,7 @@ def update_pie_graph(children=None):
                      component_property="children")]
               )
 def update_map_traffic_bike(children=None):
+    """Map to visualize the number of bike"""
     return map_traffic_bike(counters=sbd.counters)
 
 

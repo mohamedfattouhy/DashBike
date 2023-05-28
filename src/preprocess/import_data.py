@@ -1,8 +1,12 @@
+"""
+This module contains a function to download data (json format)
+"""
+
 # MANAGE ENVIRONNEMENT
 from pathlib import Path
-import requests
 import re
 import os
+import requests
 
 
 def create_folder(dirpath_name: str, subdir_name: str) -> None:

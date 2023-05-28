@@ -1,10 +1,15 @@
+"""
+This module contains the function that return the dashboard layout
+"""
+
 # MANAGE ENVIRONNEMENT
 from dash import html
+import dash_bootstrap_components as dbc
 from .graphics import (graphic1,
                        graphic2,
                        graphic3,
                        graphic4)
-import dash_bootstrap_components as dbc
+
 
 counters = ['X2H20063162', 'X2H19070220', 'X2H20042632', 'X2H20042634']
 

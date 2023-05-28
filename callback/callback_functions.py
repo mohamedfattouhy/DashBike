@@ -1,3 +1,7 @@
+"""
+This module contains the functions that produce the dashboard graphics.
+"""
+
 # MANAGE ENVIRONNEMENT
 from preprocess.preprocess_data import dict_of_df
 import plotly.graph_objs as go
@@ -125,7 +129,8 @@ def pie_graph(counters: list) -> dcc.Graph:
         'data': [go.Pie(
                         labels=['X2H20063162', 'X2H19070220',
                                 'X2H20042632', 'X2H20042634'],
-                        values=[intensity for intensity in dff["intensity"]],
+                        # values=[intensity for intensity in dff["intensity"]],
+                        values=dff["intensity"].tolist(),
                         marker=dict(colors=colors,
                                     line=dict(color='#000000',
                                               width=0.8)),

@@ -1,8 +1,13 @@
+"""
+This module contains a function for correctly formatting json files
+"""
+
 # MANAGE ENVIRONNEMENT
 import os
 
 
 def format_json_files(dir_json_path: str, dir_save_json: str) -> None:
+    """formatting json files"""
 
     for filename in os.listdir(dir_json_path):
 

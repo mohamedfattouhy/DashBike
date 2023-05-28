@@ -1,3 +1,8 @@
+"""
+This module contains the functions that
+return the layout of the graphs in the dashboard.
+"""
+
 # MANAGE ENVIRONNEMENT
 import dash_bootstrap_components as dbc
 from dash import html, dcc

@@ -1,10 +1,16 @@
+"""
+This module contains functions for pre-processing data
+and using it for visualization
+"""
+
 # MANAGE ENVIRONNEMENT
-import pandas as pd
 import json
 import os
+import pandas as pd
 
 
 def preprocess_json_files(path_to_json_file: str) -> pd.DataFrame:
+    """pre-processing data"""
 
     with open(path_to_json_file, "r") as f:
         data = json.load(f)
@@ -49,7 +55,13 @@ counters = ['X2H19070220',
             ]
 
 
+counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
+
+
 def dict_of_df(counters: list = counters) -> dict:
+    """
+    Put dataframes, each containing counter data, into a dictionary
+    """
 
     df_dict = {}
 
@@ -63,5 +75,5 @@ def dict_of_df(counters: list = counters) -> dict:
     return df_dict
 
 
-counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
-dict_test = dict_of_df(counters=counters)
+# counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
+# dict_test = dict_of_df(counters=counters)
