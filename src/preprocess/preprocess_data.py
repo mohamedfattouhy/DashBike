@@ -48,23 +48,33 @@ def preprocess_json_files(path_to_json_file: str) -> pd.DataFrame:
     return df
 
 
-counters = ['X2H19070220',
+# counters = ['X2H19070220',
+#             'X2H20042632',
+#             'X2H20042634',
+#             'X2H20063162'
+#             ]
+
+# counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
+
+
+def dict_of_df(counters: list = None) -> dict:
+    """
+    Put dataframes, each containing counter data, into a dictionary
+    """
+
+    if counters is not None:
+        counters_list = counters
+    else:
+        counters_list = [
+            'X2H19070220',
             'X2H20042632',
             'X2H20042634',
             'X2H20063162'
             ]
 
-# counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
-
-
-def dict_of_df(counters: list = counters) -> dict:
-    """
-    Put dataframes, each containing counter data, into a dictionary
-    """
-
     df_dict = {}
 
-    for counter in counters:
+    for counter in counters_list:
         path_to_data = os.path.join("data", "preprocess",
                                     counter + ".json")
         data = preprocess_json_files(path_to_data)
