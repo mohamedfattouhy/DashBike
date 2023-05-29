@@ -13,7 +13,7 @@ def create_folder(dirpath_name: str, subdir_name: str) -> None:
     """create directories and sub-directories for data"""
 
     dirpath = Path(os.path.join("..", "..", dirpath_name))
-    subdir = Path(os.path.join("..", "..", dirpath_name,  subdir_name))
+    subdir = Path(os.path.join(subdir_name))
 
     if dirpath.is_dir():
         print(f"The directory '{dirpath_name}' already exists")
@@ -32,8 +32,8 @@ def create_folder(dirpath_name: str, subdir_name: str) -> None:
               sub-directory '{subdir_name}' have been created")
 
 
-create_folder(dirpath_name='dataaa', subdir_name="raw")
-create_folder(dirpath_name='dataaa', subdir_name="preprocess")
+create_folder(dirpath_name='data', subdir_name="raw")
+create_folder(dirpath_name='data', subdir_name="preprocess")
 
 
 def load_json_files(file_names: list) -> None:
@@ -53,11 +53,11 @@ def load_json_files(file_names: list) -> None:
             f.write(response.text)
 
 
-filenames = [
-    "MMM_EcoCompt_X2H19070220_archive.json",
-    "MMM_EcoCompt_X2H20042632_archive.json",
-    'MMM_EcoCompt_X2H20042634_archive.json',
-    'MMM_EcoCompt_X2H20063162_archive.json'
-]
+# filenames = [
+#     "MMM_EcoCompt_X2H19070220_archive.json",
+#     "MMM_EcoCompt_X2H20042632_archive.json",
+#     'MMM_EcoCompt_X2H20042634_archive.json',
+#     'MMM_EcoCompt_X2H20063162_archive.json'
+# ]
 
-load_json_files(file_names=filenames)
+# load_json_files(file_names=filenames)
