@@ -3,6 +3,7 @@ This file contains the code to create and run the
 """
 
 # MANAGE ENVIRONNEMENT
+import os
 import webbrowser as wb
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output
@@ -13,8 +14,23 @@ from callback.callback_functions import (
        map_traffic_bike)
 import src.build.dashbike as sbd
 from src.build.dashbike import layout
+from src.preprocess.import_data import create_folder, load_json_files
+from src.preprocess.formatting_data import format_json_files
 
 
+# create 'data' folder if it does not already exist
+create_folder(dirpath_name='data', subdir_names=["raw", "preprocess"])
+
+# loads json files
+load_json_files()
+
+# formatting json files
+dir_json_path = os.path.join("data", "raw")
+dir_save_json = os.path.join("data", "preprocess")
+format_json_files(dir_json_path, dir_save_json)
+
+
+# Create the app
 app = Dash(__name__,  title='Dashbike',
            external_stylesheets=[dbc.themes.SUPERHERO,
                                  dbc.icons.BOOTSTRAP,

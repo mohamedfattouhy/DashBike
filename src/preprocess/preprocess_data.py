@@ -54,8 +54,7 @@ counters = ['X2H19070220',
             'X2H20063162'
             ]
 
-
-counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
+# counters = ['X2H19070220', 'X2H20042632', 'X2H20042634', 'X2H20063162']
 
 
 def dict_of_df(counters: list = counters) -> dict:

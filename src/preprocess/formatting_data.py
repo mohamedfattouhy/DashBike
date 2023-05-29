@@ -42,6 +42,6 @@ def format_json_files(dir_json_path: str, dir_save_json: str) -> None:
                 f.truncate()
 
 
-dir_json_path = os.path.join("..", "data", "raw")
-dir_save_json = os.path.join("..", "data", "preprocess")
-format_json_files(dir_json_path=dir_json_path, dir_save_json=dir_save_json)
+# dir_json_path = os.path.join("..", "..", "data", "raw")
+# dir_save_json = os.path.join("..", "..", "data", "preprocess")
+# format_json_files(dir_json_path=dir_json_path, dir_save_json=dir_save_json)
