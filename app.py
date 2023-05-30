@@ -7,6 +7,7 @@ import os
 import webbrowser as wb
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output
+from flask_caching import Cache
 from callback.callback_functions import (
        bike_traffic,
        traffic_week,
@@ -41,6 +42,9 @@ app = Dash(__name__,  title='Dashbike',
                         minimum-scale=1'}]
            )
 
+# Initialize cache with simple caching strategy
+cache = Cache(app.server, config={'CACHE_TYPE': 'simple'})
+
 # application layout
 app.layout = dbc.Container(children=layout(), fluid=True)
 
@@ -51,6 +55,7 @@ app.layout = dbc.Container(children=layout(), fluid=True)
               [Input(component_id="input-counter",
                      component_property="value")]
               )
+@cache.memoize()  # Decorator to cache function results
 def update_traffic_bike(counter):
     """Update bike traffic curve graph"""
     return bike_traffic(counter)
@@ -61,6 +66,7 @@ def update_traffic_bike(counter):
               [Input(component_id="input-week",
                      component_property="value")]
               )
+@cache.memoize()
 def update_traffic_week(counter):
     """Update of the bar chart on the
     rate of bike passages per week"""
