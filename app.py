@@ -95,5 +95,5 @@ def update_map_traffic_bike(children=None):
 
 # run the app locally
 if __name__ == '__main__':
-    wb.open_new("http://127.0.0.1:8050/")
+#     wb.open_new("http://127.0.0.1:8050/")
     app.run_server(debug=False)
