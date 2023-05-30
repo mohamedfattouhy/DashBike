@@ -95,7 +95,7 @@ def traffic_week(counter: str) -> dcc.Graph:
     return dcc.Graph(figure=fig)
 
 
-def pie_graph(counters: list) -> dcc.Graph:
+def pie_graph(counters: list) -> dict:
     """pie chart to visualize the number of bicycles on the road"""
 
     dff = pd.DataFrame()

@@ -89,13 +89,13 @@ def graphic2(counters: list) -> tuple:
                         className="output-graphic-div")
 
 
-def graphic3():
+def graphic3() -> tuple:
     """Third graphic of the dashoard"""
     return html.Div(id="input-pie"), html.Div([dcc.Graph(id="output-pie")],
                                               className="output-graphic-div")
 
 
-def graphic4():
+def graphic4() -> tuple:
     """Fourth graphic of the dashoard"""
     return html.Div("(Some of) Montpellier's eco-counters",
                     id="input-map",

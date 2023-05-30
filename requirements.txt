@@ -6,3 +6,4 @@ webbrowser
 requests
 pathlib
 pandas
+flask_caching
