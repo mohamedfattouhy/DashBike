@@ -93,7 +93,13 @@ def update_map_traffic_bike(children=None):
     return map_traffic_bike(counters=sbd.counters)
 
 
+def main(open_app: bool = False):
+    """Run the app if 'open_app' is set to True"""
+    if open_app:
+        wb.open_new("http://127.0.0.1:8050/")
+        app.run(debug=False)
+
+
 # run the app locally
 if __name__ == '__main__':
-    wb.open_new("http://127.0.0.1:8050/")
-    app.run(debug=False)
+    main(open_app=False)  # Set 'open_app' to True to run the app
