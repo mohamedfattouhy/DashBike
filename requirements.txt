@@ -1,8 +1,5 @@
-re
-json
 dash
-webbrowser
 requests
-pathlib
 pandas
 flask_caching
+dash_bootstrap_components
