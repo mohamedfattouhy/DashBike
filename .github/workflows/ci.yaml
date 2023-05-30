@@ -22,13 +22,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pylint pytest
           pip install -r requirements.txt
-      # - name: Enable insecure commands
-      # - name: Edit PYTHONPATH
-      #   run: echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
-      # - name: Set PYTHONPATH
-      #   run: |
-      #     echo "::add-path::."
-      #     export PYTHONPATH="."
       - name: Lint
         run: |
           # stop the test if the quality score is below 6
@@ -37,9 +30,6 @@ jobs:
           python -m pylint src/preprocess/formatting_data.py --fail-under=6
           python -m pylint src/preprocess/preprocess_data.py --fail-under=6
           python -m pylint app.py --fail-under=6
-      - name: Run app 
-        run: |
-          python app.py
       - name: Run tests with pytest
         run: |
           python -m pytest tests/
