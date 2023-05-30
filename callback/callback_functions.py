@@ -3,19 +3,21 @@ This module contains the functions that produce the dashboard graphics.
 """
 
 # MANAGE ENVIRONNEMENT
-from src.preprocess.preprocess_data import dict_of_df
-import plotly.graph_objs as go
+import os
 import plotly.express as px
+import plotly.graph_objs as go
 from dash import dcc
 import pandas as pd
+from src.preprocess.preprocess_data import dict_of_df
 
 # import the dictionary containing the data frames
-df_dict = dict_of_df()
+# df_dict = dict_of_df()
 
 
 def bike_traffic(counter: str) -> dcc.Graph:
     """bicycle (curved graph) traffic plot"""
 
+    df_dict = dict_of_df()
     df = df_dict[counter]
 
     title = '<sub>(Eco-counter: ' + str(df["id"].unique()[0]) + ')</sub>'
@@ -53,6 +55,7 @@ def bike_traffic(counter: str) -> dcc.Graph:
 def traffic_week(counter: str) -> dcc.Graph:
     """plot (bar graphic) the passage per day"""
 
+    df_dict = dict_of_df()
     df = df_dict[counter]
 
     df = df[["intensity", "id", "week"]].groupby(
@@ -102,7 +105,7 @@ def pie_graph(counters: list) -> dict:
 
     # Loop through the counters
     for counter in iter(counters):
-
+        df_dict = dict_of_df()
         df = df_dict[counter]
 
         # Retrieve the last line of the DataFrame
@@ -180,7 +183,7 @@ def map_traffic_bike(counters: list) -> dcc.Graph:
 
     # Loop through the counters
     for counter in iter(counters):
-
+        df_dict = dict_of_df()
         df = df_dict[counter]
 
         # Retrieve the last line of the DataFrame
