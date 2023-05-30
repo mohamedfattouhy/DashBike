@@ -98,8 +98,10 @@ def main(open_app: bool = False):
     if open_app:
         wb.open_new("http://127.0.0.1:8050/")
         app.run(debug=False)
+    else:
+        print("Set 'open_app' to True to run the app")
 
 
 # run the app locally
 if __name__ == '__main__':
-    main(open_app=False)  # Set 'open_app' to True to run the app
+    main(open_app=True)  # Set 'open_app' to True to run the app

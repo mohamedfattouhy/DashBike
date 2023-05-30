@@ -11,6 +11,8 @@
 
 <br>
 
+![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/mohamedfattouhy/DashBike/ci.yaml?branch=main)
+
 This personal project aims to create an application with a dashboard using open-source data provided by the city of Montpellier on bike counters. This project uses Dash (by plotly), which is a framework for building data apps in Python. To find out more about Dash, see [Dash by plotly](https://dash.plotly.com/).
 
 ### Overview
