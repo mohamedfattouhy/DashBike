@@ -22,6 +22,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install pylint pytest
           pip install -r requirements.txt
+            # - name: Enable insecure commands
+      - name: Edit PYTHONPATH
+        run: echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
+      - name: Set PYTHONPATH
+        run: |
+          echo "::add-path::."
+          export PYTHONPATH="."
       - name: Lint
         run: |
           # stop the test if the quality score is below 6
