@@ -104,4 +104,4 @@ def main(open_app: bool = False):
 
 # run the app locally
 if __name__ == '__main__':
-    main(open_app=True)  # Set 'open_app' to True to run the app
+    main(open_app=False)  # Set 'open_app' to True to run the app
