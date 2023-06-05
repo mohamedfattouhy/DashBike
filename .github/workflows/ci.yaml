@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run app.py file
         run: |
-          python app.py
+          python app.py False
       - name: Lint
         run: |
           # stop the test if the quality score is below 6
