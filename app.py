@@ -111,5 +111,4 @@ def update_map_traffic_bike(children=None):
 if len(sys.argv) == 1:
     if __name__ == '__main__':
         wb.open_new("http://127.0.0.1:8050/")
-        print("lqfbsdfbdskhgbkjd")
         app.run(debug=False)
