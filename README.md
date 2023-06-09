@@ -18,6 +18,11 @@ This personal project aims to create an application with a dashboard using open-
 ### Overview
 This project utilizes publicly available data from the city of Montpellier's bike counters. The city has installed numerous bike counters at strategic locations to monitor and collect data on bike usage across the city. This project leverages this data to provide insights and visualizations through a user-friendly dashboard application. For more information on the data, see: [Bike datasets](https://data.montpellier3m.fr/dataset/comptages-velo-et-pieton-issus-des-compteurs-de-velo).
 
+### Deployment
+You can view a very similar app I've deployed (in french) here: [DashBike app](https://test-dashboard-2.onrender.com/)
+
+Note: Don't hesitate to reload the page if it loads slowly.
+
 ### Instructions
 To try the app, you can follow these steps:
 
